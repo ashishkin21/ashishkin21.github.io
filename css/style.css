@@ -332,6 +332,16 @@ ul {
 ul li {
 	margin-bottom:var(--spacing-xs);
 }
+.skills-container {
+  display: flex;
+  justify-content: center; /* Centers the list horizontally */
+  align-items: center;     /* Optional: center vertically */
+}
+.skills-elems {
+  text-align: left;        /* Aligns text inside list items to the left */
+  list-style: none;        /* Optional: remove bullet points */
+  padding: 0;              /* Optional: remove default padding */
+}
 
 /* Privacy page specific responsive adjustments */
   @media (max-width:34.375rem) {
