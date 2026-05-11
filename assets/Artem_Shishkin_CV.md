@@ -2,9 +2,9 @@ Artem Shishkin • Python Developer | Internal Tools & AI Automation
 
 # Summary
 
-Internal tools and AI automation engineer. I build end-to-end solutions — from simple scripts to AI agents — that eliminate manual workflows and save teams hundreds of hours per month. Stack: Python, FastAPI, LLMs/RAG, LangChain, Docker, CI/CD.
+Internal tools and AI automation engineer. Build end-to-end solutions — from simple scripts to AI agents — that eliminate manual workflows and save teams hundreds of hours per month. Stack: Python, FastAPI, LLMs/RAG, LangChain, Docker, CI/CD.
 
-Self-driven, full-cycle ownership: I define the problem, design the solution, write the code, deploy to production, and monitor the result. Looking for a role focused on internal tooling and AI-powered automation.
+Self-driven, full-cycle ownership: define the problem, design the solution, write the code, deploy to production, and monitor the result. Looking for a role focused on internal tooling and AI-powered automation.
 
 # Skills
 

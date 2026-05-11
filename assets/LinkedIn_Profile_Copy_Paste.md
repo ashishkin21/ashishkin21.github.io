@@ -6,15 +6,15 @@ Python Developer | AI Agents & LLM Automation | LangChain, RAG, FastAPI | Intern
 
 ## 2. ABOUT (первые ~3 строки = hook, видны до "see more")
 
-I build AI-powered internal tools and automation that eliminate manual workflows and save teams hundreds of hours per month.
+Build AI-powered internal tools and automation that eliminate manual workflows and save teams hundreds of hours per month.
 
-Python developer with 5+ years of end-to-end experience — from problem definition and system design to development, deployment, and monitoring. I specialize in LLM-based automation, RAG architectures, agentic workflows, and internal tooling built with Python, FastAPI, LangChain, Docker, and CI/CD.
+Python developer with 5+ years of end-to-end experience — from problem definition and system design to development, deployment, and monitoring. Specialize in LLM-based automation, RAG architectures, agentic workflows, and internal tooling built with Python, FastAPI, LangChain, Docker, and CI/CD.
 
 🔹 Built a no-code AI agent platform integrated with Service Desk — handles 2000+ tasks/day, winner of internal "Best IT Project of 2025" award
 🔹 Developed RAG-based auto-resolution system that solves ~15% of support tickets and saves 200+ engineering hours monthly
 🔹 Created a Jira release validator that cuts deployment prep from 20 minutes to under 2 minutes
 
-I thrive on owning the full cycle — understanding the problem, designing the solution, shipping the code, and monitoring the result. Looking for a role where I can build internal tools and AI agents that make teams measurably more productive.
+Thrive on owning the full cycle — understanding the problem, designing the solution, shipping the code, and monitoring the result. Looking for a role focused on building internal tools and AI agents that make teams measurably more productive.
 
 📬 Open to: Internal Tools Developer | AI/Automation Engineer | Python Backend roles
 
