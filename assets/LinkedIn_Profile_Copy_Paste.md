@@ -118,3 +118,66 @@ Russian State Social University — Specialist, Marketing | 2007 – 2012
 10. **Hashtags в About**: добавь 3-5 хештегов в конец About (LinkedIn позволяет): `#Python #AI #Automation #InternalTools #LLM`
 
 11. **Skills Endorsements**: попроси коллег эндорснуть топ-10 скиллов. Пинни 3 самых важных (Python, FastAPI, LangChain) в топ. Чем больше эндорсментов по скиллу, тем выше профиль по этому ключевому слову.
+
+---
+
+## FIXES: что исправить в текущем профиле (аудит от 09.05.2026)
+
+После аудита профиля `https://il.linkedin.com/in/ashishkin21` обнаружены следующие проблемы.
+
+### CRITICAL
+
+1. **English proficiency — "Limited Working"** ⚠️ SAMOE SROCHNOE
+   - Сейчас: `English — Limited Working Proficiency`
+   - Исправить на: `English — Professional Working Proficiency`
+   - Где: Add profile section → Languages → Edit
+   - Почему: ATS-системы режут профили с "Limited Working". При английском CV и международном поиске это выглядит как несоответствие.
+
+2. **About — всё ещё старая версия**
+   - Сейчас: "Focused on solving business problems by designing and building automation workflows and…"
+   - Заменить на: текст из секции **2. ABOUT** выше в этом файле.
+   - Где: профиль → About → Edit (иконка карандаша)
+
+3. **Headline — проверить**
+   - Headline скрыт за логином. Зайди под своим аккаунтом и проверь, что там не просто "Python Developer".
+   - Если старая версия — заменить на текст из секции **1. HEADLINE** выше.
+   - Где: профиль → иконка карандаша в intro card
+
+### DATA INCONSISTENCIES
+
+4. **Automated Ticket Resolution App: 160+ vs 200+ часов**
+   - Сейчас в LinkedIn: "Saved an estimated **160+** hours"
+   - В CV: "**200+** hours"
+   - Исправить в LinkedIn на **200+** (более сильная цифра, к тому же должна совпадать с CV).
+
+5. **Task Validator: даты "Apr 2024 – Apr 2024"**
+   - Сейчас в LinkedIn стоит один и тот же месяц начала и окончания — выглядит как ошибка.
+   - Укажи реальный период. Если проект длился меньше месяца — поставь только дату начала без даты окончания.
+
+6. **Typo "for many company's apps"**
+   - В проекте "Apps Stores Ratings & Reviews" всё ещё старая опечатка (перенеслась из старого CV).
+   - Исправить на: `for multiple company apps`
+
+### PROJECTS — заменить на компактные версии
+
+Текущие тексты проектов скопированы 1-в-1 из CV (длинные, без стека). Рекомендуется заменить на версии из секции **5. PROJECTS** выше в этом файле — они:
+- Компактнее (LinkedIn Projects поле ~2000 символов)
+- Содержат стек технологий
+- Адаптированы под быстрый скроллинг рекрутера
+
+### EXPERIENCE — проверить, заполнены ли описания
+
+Описания ролей в секции Experience не видны в публичном профиле (скрыты за логином). Проверь под своим аккаунтом:
+- Automation Engineer — заменить на буллеты из секции **4. EXPERIENCE** выше
+- SRE Engineer — заменить на буллеты оттуда же
+- Tech Support — ок, короткий текст
+
+### SKILLS — добавить до 50
+
+Сейчас количество skills неизвестно (скрыто). Добавь все навыки из секции **3. SKILLS** выше, пока не заполнишь все 50 слотов.
+
+### ACTIVITY & CONNECTIONS
+
+- **118 connections → 500+**: добавиться к рекрутерам, коллегам, участникам Python/AI-групп
+- **3 комментария за всё время**: начни комментировать 1-2 поста в неделю в темах Python, AI, automation. LinkedIn поднимает активные профили в поиске.
+- **Последняя активность 5+ месяцев назад**: алгоритм снижает видимость неактивных профилей.
