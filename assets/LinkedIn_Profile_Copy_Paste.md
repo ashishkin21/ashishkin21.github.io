@@ -22,7 +22,7 @@ Thrive on owning the full cycle — understanding the problem, designing the sol
 
 Скопируй и вставь в секцию Skills. LinkedIn сам подберёт категорию для каждого:
 
-Python, FastAPI, asyncio, REST API, API Integration, pydantic, httpx, SQLAlchemy, pytest, PostgreSQL, Redis, SQL, Oracle, LangChain, LangGraph, RAG, LLM, Prompt Engineering, AI Agents, OpenAI API, N8N, Workflow Automation, Internal Tools, Process Automation, Docker, Kubernetes, Helm, GitLab CI, CI/CD, Linux, HashiCorp Vault, Grafana, Graylog, Splunk, Kibana, Log Analysis, Monitoring, Troubleshooting, Incident Management, OAuth 2.0, Keycloak, Git, JIRA, Confluence, Agile, Scrum, SAFe, DevOps
+Python, FastAPI, asyncio, REST API, API Development, API Integration, pydantic, httpx, SQLAlchemy, pytest, PostgreSQL, Redis, SQL, Oracle, LangChain, LangGraph, RAG, LLM, Prompt Engineering, AI Agents, OpenAI API, ChatGPT, N8N, Workflow Automation, Internal Tools, Process Automation, Generative AI, NLP, Machine Learning, Vector Databases, Embeddings, Chatbots, Conversational AI, System Design, Cross-functional Collaboration, Docker, Kubernetes, Microservices, Helm, GitLab CI, CI/CD, Linux, HashiCorp Vault, Grafana, Graylog, Splunk, Kibana, Log Analysis, Monitoring, Troubleshooting, Incident Management, OAuth 2.0, Keycloak, Git, JIRA, Confluence, Agile, Scrum, SAFe, DevOps
 
 ## 4. EXPERIENCE
 
@@ -119,6 +119,42 @@ Russian State Social University — Specialist, Marketing | 2007 – 2012
 
 11. **Skills Endorsements**: попроси коллег эндорснуть топ-10 скиллов. Пинни 3 самых важных (Python, FastAPI, LangChain) в топ. Чем больше эндорсментов по скиллу, тем выше профиль по этому ключевому слову.
 
+12. **Featured Section (Избранное)**: добавь в секцию Featured (прямо под About, самая заметная область): ссылку на GitHub, скриншоты проектов (Grafana дашборд, интерфейс AI-агента), ссылку на CV. Иди: Add profile section → Featured → Links/Media.
+
+13. **Honors & Awards (Награды)**: создай отдельную секцию. «Best IT Project of 2025» — сейчас упомянуто только внутри текста проекта, а должно быть вынесено в отдельную секцию LinkedIn. Иди: Add profile section → Add honors & awards.
+
+14. **Company descriptions в Experience**: LinkedIn позволяет добавить описание компании к каждой позиции — это дополнительные keywords. Скопируй из CV:
+    - Home Credit: *"Global consumer finance provider focused on emerging markets, with over 100 million customers across 9 countries"*
+    - Tinkoff: *"One of the world's largest neobanks with no physical branches and a strong focus on digital services"*
+
+15. **LinkedIn Groups**: вступи в профильные группы (до 100). Членство в группах добавляет скрытые keyword-ассоциации к профилю. Примеры групп: Python Developers, AI & Machine Learning, LangChain, FastAPI, DevOps/SRE.
+
+16. **Following (подписки)**: подпишись на компании и экспертов: OpenAI, Anthropic, LangChain, ведущие AI-стартапы. Это видно в профиле и добавляет сигналов релевантности.
+
+17. **Posts / Articles**: напиши 1-2 поста или статьи. Идеи:
+    - Статья-кейс про AI-агента, выигравшего «Best IT Project of 2025»
+    - Пост «How we auto-resolve 15% of tickets with RAG»
+    Комментариев недостаточно — оригинальный контент демонстрирует экспертизу.
+
+18. **Двуязычный профиль**: LinkedIn позволяет создать профиль на русском (secondary language). Рекрутеры из РФ/СНГ увидят профиль на русском; остальные — английскую версию. Иди: Settings → Language → Add profile in another language.
+
+19. **Custom Button (CTA)**: в header профиля можно поставить кастомную кнопку: «Visit my GitHub» или «Contact me». Edit intro → Custom button.
+
+20. **Job Search Preferences / Career Interests**: отдельно от «Open to Work», настрой:
+    - Target job titles: *Python Developer, AI/Automation Engineer, Internal Tools Developer*
+    - Location preferences: Remote, On-site, Hybrid
+    - Employment type: Full-time, Contract
+    - Желаемые индустрии
+    Иди: Settings → Job seeking preferences → Manage career interests.
+
+21. **Profile Viewing Mode**: если смотришь профили рекрутеров в приватном режиме — они не видят тебя в «Who's viewed your profile». Переключись в public/visible mode, когда заходишь к рекрутерам. Settings → Visibility → Profile viewing options.
+
+22. **Локация**: сейчас `Netanya, Center District, Israel`. Рассмотри вариант `Tel Aviv Metropolitan Area` или просто `Israel` — рекрутеры часто ищут по metro area, Tel Aviv более узнаваем, чем Netanya. Edit intro → Location.
+
+23. **Name Pronunciation**: LinkedIn позволяет записать 10-секундное аудио произношения имени — мелочь, но влияет на «completeness score». Edit intro → Name pronunciation.
+
+24. **Pronouns**: ещё одно поле во intro card, влияющее на общий completeness score.
+
 ---
 
 ## FIXES: что исправить в текущем профиле (аудит от 09.05.2026)
@@ -181,3 +217,57 @@ Russian State Social University — Specialist, Marketing | 2007 – 2012
 - **118 connections → 500+**: добавиться к рекрутерам, коллегам, участникам Python/AI-групп
 - **3 комментария за всё время**: начни комментировать 1-2 поста в неделю в темах Python, AI, automation. LinkedIn поднимает активные профили в поиске.
 - **Последняя активность 5+ месяцев назад**: алгоритм снижает видимость неактивных профилей.
+
+---
+
+## ADDITIONAL FINDS: что ещё можно улучшить (аудит от 13.05.2026)
+
+После повторного аудита и сверки с CV найдены дополнительные точки роста, не вошедшие в первоначальный список.
+
+### Секции LinkedIn, которые сейчас НЕ используются
+
+| # | Секция | Что добавить | Impact |
+|---|---|---|---|
+| 1 | **Featured** | GitHub ссылка, скриншоты проектов (Grafana дашборд, интерфейс AI-агента), ссылка на CV | High |
+| 2 | **Honors & Awards** | «Best IT Project of 2025» — вынести из текста проекта в отдельную секцию | High |
+| 3 | **Company descriptions** | Home Credit: *"Global consumer finance provider, 100M+ customers, 9 countries"*. Tinkoff: *"One of the world's largest neobanks, no physical branches, digital-first"* | Medium |
+| 4 | **Career Interests** | Задать target job titles, location/remote preferences, желаемые индустрии | Medium |
+
+### Keyword / SEO gaps (закрыты в Skills выше)
+
+Добавлены в секцию **3. SKILLS** следующие высокочастотные keywords, которых не было раньше:
+
+`Generative AI`, `NLP`, `Machine Learning`, `Vector Databases`, `Embeddings`, `ChatGPT`, `Chatbots`, `Conversational AI`, `API Development`, `Microservices`, `System Design`, `Cross-functional Collaboration`
+
+Теперь список навыков превышает 50 — выбери топ-50.
+
+### Действия для visibility (не разовые, а постоянные)
+
+| # | Действие | Зачем |
+|---|---|---|
+| 5 | **LinkedIn Groups** — вступить в 10-20 профильных групп (Python, AI, LangChain, FastAPI, DevOps) | Group membership добавляет скрытые keyword-ассоциации к профилю |
+| 6 | **Following** — подписаться на OpenAI, Anthropic, LangChain, AI-стартапы | Видно в профиле, сигнал релевантности |
+| 7 | **Posts / Articles** — написать 1-2 оригинальных поста или статью | Демонстрирует экспертизу, поднимает профиль в ленте |
+| 8 | **Двуязычный профиль** — создать русскую версию (secondary language) | Охват русскоязычных рекрутеров без потери англоязычных |
+
+### Мелкие completeness-поля
+
+| # | Поле | Где |
+|---|---|---|
+| 9 | **Custom Button (CTA)** | Edit intro → «Visit my GitHub» |
+| 10 | **Location** — сменить Netanya на Tel Aviv metro area или просто Israel | Edit intro → Location |
+| 11 | **Name Pronunciation** — 10-сек аудио | Edit intro |
+| 12 | **Pronouns** | Edit intro |
+| 13 | **Profile Viewing Mode** → public/visible | Settings → Visibility (чтобы рекрутеры видели тебя в «Who viewed your profile») |
+
+### Priority matrix
+
+| Priority | Что сделать | Усилие |
+|---|---|---|
+| 🔴 High | Featured Section (+GitHub, скриншоты) | 15 мин |
+| 🔴 High | Honors & Awards | 5 мин |
+| 🟡 Medium | Company descriptions в Experience | 10 мин |
+| 🟡 Medium | Career Interests / Job Preferences | 10 мин |
+| 🟡 Medium | Posts / Articles (1-2 шт) | 1-2 часа |
+| 🟢 Low | Groups, Following, двуязычный профиль | фоновая работа |
+| 🟢 Low | Custom CTA, Location, Name Pronunciation, Pronouns | 15 мин всё вместе |
