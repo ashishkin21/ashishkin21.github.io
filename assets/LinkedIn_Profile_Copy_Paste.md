@@ -271,3 +271,143 @@ Russian State Social University — Specialist, Marketing | 2007 – 2012
 | 🟡 Medium | Posts / Articles (1-2 шт) | 1-2 часа |
 | 🟢 Low | Groups, Following, двуязычный профиль | фоновая работа |
 | 🟢 Low | Custom CTA, Location, Name Pronunciation, Pronouns | 15 мин всё вместе |
+
+---
+
+## ADDITIONAL OPTIMIZATIONS (аудит 13.05.2026 — сверка с публичным профилем)
+
+После сверки публичного профиля `https://il.linkedin.com/in/ashishkin21` с файлом оптимизаций и CV найдены точки роста, не вошедшие в предыдущие аудиты.
+
+### 1. Industry field
+
+LinkedIn позволяет выбрать индустрию в intro card. Это **фильтр для рекрутеров** — многие ищут кандидатов именно по индустрии.
+
+- **Где:** Edit intro → Industry
+- **Поставить:** `Software Development` или `IT Services and IT Consulting`
+- **Сейчас:** скорее всего не заполнено
+
+### 2. Project media — скриншоты и GIF-анимации
+
+LinkedIn позволяет прикрепить к каждому проекту изображения, GIF или ссылки. Проекты с медиа получают в 2-3 раза больше кликов от рекрутеров.
+
+**Что добавить к каким проектам:**
+
+| Проект | Что прикрепить |
+|---|---|
+| Service Desk AI Agent | Скриншот интерфейса AI-агента, схема архитектуры |
+| Automated Ticket Resolution App | Дашборд с метрикой «~15% auto-resolved», Grafana-скриншот |
+| Service Desk Reporting Tool | Пример отчёта с pie chart визуализацией |
+| App Store Ratings & Reviews | Grafana dashboard с рейтингами приложений |
+
+**Где:** Профиль → Projects → Edit (карандаш) → Add media
+
+### 3. Contact Info — проверить видимость
+
+Custom CTA кнопка упомянута в основном списке (#19), но сама секция Contact Info не затронута. Проверь:
+
+- **Email:** виден ли рекрутерам (не только connections)? Поставь «Everyone» или «1st-degree connections»
+- **GitHub:** добавлен ли?
+- **Телефон:** опционально
+
+**Где:** Edit intro → Contact info (иконка карандаша)
+
+### 4. Job Title в Intro Card (отдельно от Headline)
+
+Headline (220 символов) — главное SEO-поле. Но LinkedIn ищет и по полю **«Current Position»** — жирный заголовок прямо под именем.
+
+- **Сейчас там вероятно:** `Automation Engineer at Home Credit International`
+- **Заменить на:** `Automation Engineer | AI & Internal Tools at Home Credit International`
+- **Где:** Edit intro → Edit current position → Title (отдельно от описания роли)
+
+### 5. Эндорсмент-стратегия «отдай → получи»
+
+Файл говорит запросить эндорсменты у коллег (#11), но **эндорсмент других людей** часто вызывает ответный эндорсмент:
+
+1. Эндорсни 10-15 бывших и текущих коллег по их топ-скиллам
+2. LinkedIn пришлёт им уведомление с предложением эндорснуть тебя в ответ
+3. Сфокусируйся на топ-3: Python, FastAPI, LangChain — чтобы именно они набрали максимум эндорсментов
+
+### 6. Volunteer Experience — секция не используется
+
+Даже минимальный volunteer experience повышает completeness score LinkedIn. Некоторые рекрутеры специально фильтруют кандидатов с community involvement.
+
+- Если участвовал в open-source, менторил джуниоров, помогал на митапах — добавь
+- **Где:** Add profile section → Volunteer Experience
+
+### 7. Education — добавить описание
+
+LinkedIn позволяет добавить к образованию description, activities, societies — дополнительные keyword-слоты.
+
+**Пример для Russian State Social University:**
+```
+Activities and societies: Data analysis projects, process automation hackathons
+Description: Specialized in marketing analytics and data-driven decision making. Applied statistical methods and Excel/SQL for consumer research and campaign analysis.
+```
+Это добавляет keywords: `Data Analysis`, `SQL`, `Marketing Analytics`.
+
+**Где:** Профиль → Education → Edit (карандаш) → Description / Activities
+
+### 8. Search Appearances — регулярный мониторинг
+
+После всех оптимизаций отслеживай, по каким ключевым словам приходят просмотры. Это ongoing-оптимизация, а не разовое действие.
+
+- **Где:** LinkedIn Dashboard → Search appearances
+- Если 70% просмотров по «Python Developer» и только 5% по «AI Engineer» → понятно, где усиливать keywords
+- Повторяй каждые 2-4 недели после изменений
+
+### Priority matrix (дополнительные находки)
+
+| Priority | Что сделать | Усилие |
+|---|---|---|
+| 🔴 High | Industry field | 1 мин |
+| 🔴 High | Project media — скриншоты/GIF | 15 мин |
+| 🟡 Medium | Contact Info audit (email visibility, GitHub) | 5 мин |
+| 🟡 Medium | Job Title в intro card | 2 мин |
+| 🟡 Medium | Эндорсмент-стратегия «отдай → получи» | 10 мин |
+| 🟢 Low | Education description | 3 мин |
+| 🟢 Low | Volunteer Experience | опционально |
+| 🟢 Low | Search Appearances мониторинг | ongoing (раз в 2-4 недели) |
+
+### Master checklist — все действия одним списком
+
+**Разовые (сегодня-завтра):**
+- [ ] English proficiency → Professional Working
+- [ ] About → заменить на новую версию
+- [ ] Headline → проверить и заменить на новую версию
+- [ ] Industry → Software Development
+- [ ] Job Title в intro card → Automation Engineer | AI & Internal Tools
+- [ ] Contact Info — email видимость и GitHub
+- [ ] All 50 skills → заполнить все слоты
+- [ ] Experience descriptions → заменить на новые буллеты
+- [ ] Projects → заменить на компактные версии + добавить media
+- [ ] Featured Section → GitHub, скриншоты, CV
+- [ ] Honors & Awards → «Best IT Project of 2025»
+- [ ] Company descriptions → Home Credit + Tinkoff
+- [ ] Career Interests / Job Preferences → заполнить
+- [ ] Custom CTA → «Visit my GitHub»
+- [ ] Location → Tel Aviv Metropolitan Area
+- [ ] Name Pronunciation + Pronouns
+- [ ] Hashtags в About
+- [ ] Creator mode → ON
+- [ ] Open to Work → Recruiters only
+- [ ] Education → добавить description
+- [ ] Фото: проверить критерии (60% лица, нейтральный фон)
+- [ ] Cover image: tech-themed баннер
+
+**На этой неделе:**
+- [ ] Custom URL → linkedin.com/in/artem-shishkin
+- [ ] Двуязычный профиль → русская версия
+- [ ] Эндорсмент-стратегия → эндорснуть коллег, запросить в ответ
+- [ ] LinkedIn Groups → вступить в 10-20 профильных
+
+**В этом месяце:**
+- [ ] Connections → 500+
+- [ ] Posts / Articles → 1-2 оригинальных поста
+- [ ] Activity → 1-2 комментария/лайка в неделю
+- [ ] Following → OpenAI, Anthropic, LangChain, AI-стартапы
+- [ ] Profile Viewing Mode → public/visible
+
+**Ongoing:**
+- [ ] Search Appearances → мониторинг каждые 2-4 недели
+- [ ] Skills Endorsements → поддерживать топ-3 в топе
+- [ ] Volunteer Experience → добавить, если есть
