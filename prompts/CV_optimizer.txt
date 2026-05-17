@@ -1,0 +1,9 @@
+Spot the FlawsPrompt: 
+
+Act as a recruiter for [specific role/title]. Review my resume below and highlight weak areas, overused buzzwords, and missing metrics. Be brutally honest. Provide 3 different options to choose from.
+
+1. Rewrite for ImpactPrompt: Rewrite this resume to sound more results-driven, quantifiable, and compelling for [specific role/title]. Focus on achievements, not just duties.
+2. ATS BoostPrompt: Update this resume to be fully optimized for Applicant Tracking Systems (ATS) for the role of [specific role/title]. Use industry-specific keywords naturally.
+3. Craft My HookPrompt: Write a powerful, 3-line professional summary that hooks a recruiter in under 10 seconds. Prioritize impact, clarity, and value.
+4. Upgrade ExperiencePrompt: Rephrase the experience section to highlight impact, results, and transferable skills using action verbs and quantifiable outcomes.
+5. Format FixPrompt: Suggest a clean, modern resume format that works for both humans and ATS. No graphics, no columns. Just structured and effective. Create PDF file for me to download and save.

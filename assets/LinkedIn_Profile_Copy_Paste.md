@@ -2,13 +2,13 @@
 
 ## 1. HEADLINE (макс. 220 символов, главное SEO-поле)
 
-Python Developer | AI Agents & LLM Automation | LangChain, RAG, FastAPI | Internal Tools & Workflow Automation | Docker, Kubernetes, CI/CD
+Python Developer | AI Agents & LLM Automation | LangGraph, RAG, FastAPI | Internal Tools & Workflow Automation | Docker, Kubernetes, CI/CD
 
 ## 2. ABOUT (первые ~3 строки = hook, видны до "see more")
 
 Build AI-powered internal tools and automation that eliminate manual workflows and save teams hundreds of hours per month.
 
-Python developer with 5+ years of end-to-end experience — from problem definition and system design to development, deployment, and monitoring. Specialize in LLM-based automation, RAG architectures, agentic workflows, and internal tooling built with Python, FastAPI, LangChain, Docker, and CI/CD.
+Python developer with 3+ years of end-to-end experience — from problem definition and system design to development, deployment, and monitoring. Specialize in LLM-based automation, RAG architectures, agentic workflows, and internal tooling built with Python, FastAPI, LangGraph, Docker, and CI/CD. Leverage AI-assisted development tools (AI coding agents) to accelerate delivery and reduce boilerplate.
 
 🔹 Built a no-code AI agent platform integrated with Service Desk — handles 2000+ tasks/day, winner of internal "Best IT Project of 2025" award
 🔹 Developed RAG-based auto-resolution system that solves ~15% of support tickets and saves 200+ engineering hours monthly
@@ -22,7 +22,7 @@ Thrive on owning the full cycle — understanding the problem, designing the sol
 
 Скопируй и вставь в секцию Skills. LinkedIn сам подберёт категорию для каждого:
 
-Python, FastAPI, asyncio, REST API, API Development, API Integration, pydantic, httpx, SQLAlchemy, pytest, PostgreSQL, Redis, SQL, Oracle, LangChain, LangGraph, RAG, LLM, Prompt Engineering, AI Agents, OpenAI API, ChatGPT, N8N, Workflow Automation, Internal Tools, Process Automation, Generative AI, NLP, Machine Learning, Vector Databases, Embeddings, Chatbots, Conversational AI, System Design, Cross-functional Collaboration, Docker, Kubernetes, Microservices, Helm, GitLab CI, CI/CD, Linux, HashiCorp Vault, Grafana, Graylog, Splunk, Kibana, Log Analysis, Monitoring, Troubleshooting, Incident Management, OAuth 2.0, Keycloak, Git, JIRA, Confluence, Agile, Scrum, SAFe, DevOps
+Python, FastAPI, asyncio, REST API, API Development, API Integration, pydantic, httpx, SQLAlchemy, pytest, PostgreSQL, Redis, SQL, Oracle, LangChain, LangGraph, RAG, LLM, Prompt Engineering, AI Agents, OpenAI API, ChatGPT, N8N, Workflow Automation, Internal Tools, Process Automation, Generative AI, NLP, Machine Learning, Vector Databases, Embeddings, Chatbots, Conversational AI, System Design, Cross-functional Collaboration, Docker, Kubernetes, Microservices, Helm, GitLab CI, CI/CD, Linux, HashiCorp Vault, Grafana, Graylog, Splunk, Kibana, Log Analysis, Monitoring, Troubleshooting, Incident Management, OAuth 2.0, Keycloak, Git, JIRA, Confluence, Agile, Scrum, SAFe, DevOps, GitHub Copilot, AI-Assisted Development
 
 ## 4. EXPERIENCE
 
@@ -39,7 +39,7 @@ Dec 2023 – Present · Remote
 - Added custom logging, metrics, Grafana dashboards, and alerts to all applications
 
 ### Site Reliability Engineer — Home Credit International
-Jun 2019 – Nov 2023 · Remote
+Jun 2019 – Nov 2023 · On-Site
 
 - Maintained high-load banking platform (40+ microservices) running in Kubernetes across production and test environments
 - Managed microservice configs, Helm values, Vault secrets, and network access rules
@@ -61,7 +61,7 @@ Jun 2017 – May 2019 · Moscow, Russia
 ### Service Desk AI Agent
 *Stack: Python, FastAPI, LangChain, PostgreSQL, Docker, GitLab CI*
 
-No-code AI agent builder enabling non-technical users to create custom agents for any ticket form. Listens to webhooks, selects prompts from a dynamic catalog, calls LLM, and posts structured summaries back to the ticketing system. Handles 2000+ tasks/day. Winner of "Best IT Projects of 2025" award.
+No-code AI agent builder enabling non-technical users to create custom agents for any ticket form. Listens to webhooks, selects prompts from a dynamic catalog, enriches LLM context with documentation from Confluence, vector knowledge bases, and Graylog logs, and delivers structured results back to the ticketing system. Handles 2000+ tasks/day. Winner of "Best IT Projects of 2025" award.
 
 ### Automated Ticket Resolution App
 *Stack: Python, LangChain, RAG, Vector DB, Graylog, FastAPI*
@@ -351,7 +351,7 @@ Description: Specialized in marketing analytics and data-driven decision making.
 
 После всех оптимизаций отслеживай, по каким ключевым словам приходят просмотры. Это ongoing-оптимизация, а не разовое действие.
 
-- **Где:** LinkedIn Dashboard → Search appearances
+- **Где:** LinkedIn Dashboard (https://www.linkedin.com/dashboard/) → Search appearances
 - Если 70% просмотров по «Python Developer» и только 5% по «AI Engineer» → понятно, где усиливать keywords
 - Повторяй каждые 2-4 недели после изменений
 

@@ -2,7 +2,7 @@ Artem Shishkin • Python Developer | Internal Tools & AI Automation
 
 # Summary
 
-Internal tools and AI automation engineer. Build end-to-end solutions — from simple scripts to AI agents — that eliminate manual workflows and save teams hundreds of hours per month. Stack: Python, FastAPI, LLMs/RAG, LangChain, Docker, CI/CD.
+Internal tools and AI automation engineer. Build end-to-end solutions — from simple scripts to AI agents — that eliminate manual workflows and save teams hundreds of hours per month. Use AI-assisted development (Copilot, AI coding agents) to accelerate delivery. Stack: Python, FastAPI, LLMs/RAG, LangChain, Docker, CI/CD.
 
 Self-driven, full-cycle ownership: define the problem, design the solution, write the code, deploy to production, and monitor the result. Looking for a role focused on internal tooling and AI-powered automation.
 
@@ -15,7 +15,7 @@ Self-driven, full-cycle ownership: define the problem, design the solution, writ
 - **Databases**: PostgreSQL, Redis
 - **DevOps**: Linux, Docker, GitLab CI, Kubernetes, Helm, Vault
 - **Observability**: Grafana, Graylog, Splunk, Kibana
-- **Other**: Git, JIRA, Confluence, OAuth 2.0, Keycloak
+- **Other**: Git, JIRA, Confluence, OAuth 2.0, Keycloak, AI-assisted development (Copilot, AI coding agents)
 
 # Experience
 
@@ -61,7 +61,8 @@ Integrated into Service Desk and designed as a no\-code AI agent builder, enabli
 
 - Listens to task update webhooks and retrieves task data
 - Selects a prompt and extra settings from a dynamic catalog based on task type
-- Calls an LLM to generate structured summaries or conclusions, which are posted back into the ticketing system
+- Augments LLM context with relevant documentation retrieved from Confluence, vector knowledge bases, and Graylog logs
+- Built with LangGraph agents for intelligent parallel context aggregation and structured result delivery
 
 Handles __2000\+ tasks per day__, regardless of their type\. __One of the winners of the internal company award "Best IT Projects of 2025"__\.
 
