@@ -1,0 +1,8 @@
+{
+  "name": "My Specific Project",
+  "name": "Специфичный проект",
+  "extends": "../../common-env/.devcontainer/devcontainer.json", // Наследование от ai-assisted (дописать путь)
+  
+  // Ниже пишем только то, что нужно ДОБАВИТЬ или ИЗМЕНИТЬ:
+  "postCreateCommand": "apt-get update && apt-get install -y libpango-1.0-0 libpangoft2-1.0-0 libgdk-pixbuf-2.0-0 libffi-dev libcairo2" 
+}
