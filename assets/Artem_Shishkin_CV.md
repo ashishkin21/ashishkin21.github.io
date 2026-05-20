@@ -1,116 +1,121 @@
-Artem Shishkin • Python Developer | Internal Tools & AI Automation
+# Artem Shishkin
+**Python Developer — Internal Tools & AI Automation**
 
-# Summary
+[LinkedIn](https://il.linkedin.com/in/ashishkin21) | [GitHub](https://github.com/ashishkin21) | ashishkin21@gmail.com | Israel (Remote)
 
-Internal tools and AI automation engineer. Build end-to-end solutions — from simple scripts to AI agents — that eliminate manual workflows and save teams hundreds of hours per month. Use AI-assisted development (Copilot, AI coding agents) to accelerate delivery. Stack: Python, FastAPI, LLMs/RAG, LangChain, Docker, CI/CD.
+---
 
-Self-driven, full-cycle ownership: define the problem, design the solution, write the code, deploy to production, and monitor the result. Looking for a role focused on internal tooling and AI-powered automation.
+## Summary
 
-# Skills
+Delivered 5+ AI-powered internal tools and automations serving 2000+ tasks/day across multiple teams — saving 200+ hours/month of manual work. Built a no-code AI agent platform that won "Best IT Project of 2025". Python developer with 8 years in tech, specialized in LLM-based automation, RAG architectures, and internal tooling with FastAPI, LangChain/LangGraph, Docker, and CI/CD. Looking for a role focused on internal tooling and AI-powered automation.
 
-- **Languages**: Python, SQL
-- **Backend**: FastAPI, asyncio, httpx, pydantic, SQLAlchemy, pytest
-- **AI & LLM**: RAG, LangChain, LangGraph, OpenAI-compatible APIs, Prompt Engineering
-- **Internal Tools & Automation**: N8N, workflow design, requirements gathering
-- **Databases**: PostgreSQL, Redis
-- **DevOps**: Linux, Docker, GitLab CI, Kubernetes, Helm, Vault
-- **Observability**: Grafana, Graylog, Splunk, Kibana
-- **Other**: Git, JIRA, Confluence, OAuth 2.0, Keycloak, AI-assisted development (Copilot, AI coding agents)
+---
 
-# Experience
+## Skills
 
-__Automation Engineer, Home Credit International, __Remote	Dec 2023 – Present
+**Languages & Core:** Python, SQL, asyncio, REST API  
+**Backend:** FastAPI, pydantic, httpx, SQLAlchemy, pytest  
+**AI & LLM:** LangChain, LangGraph, RAG, Prompt Engineering, OpenAI-compatible APIs, Vector Databases, Embeddings, NLP, Machine Learning  
+**Internal Tools:** N8N, workflow design, requirements gathering, process automation  
+**Data:** PostgreSQL, Redis, Oracle  
+**Infrastructure:** Docker, Kubernetes, Helm, GitLab CI, Jenkins, Linux, HashiCorp Vault  
+**Observability:** Grafana, Graylog, Splunk, Kibana  
+**Auth & Security:** OAuth 2.0, Keycloak  
+**Methodology:** Agile, Scrum, SAFe, Kanban  
+**Tools:** Git, JIRA, Confluence, AI-assisted development (GitHub Copilot, AI coding agents)
 
-Home Credit International is a global consumer finance provider focused on emerging markets, with over 100 million customers across 9 countries
+---
 
-Solve business and IT tasks end\-to\-end: design, build, deploy, and maintain internal apps from scratch to production for multiple teams and stakeholders across the company, using both code \(Python\) and low\-code \(N8N\) approaches\.
+## Experience
 
-Apps are:
+### Automation Engineer — Home Credit International
+**Remote | December 2023 – Present**
 
-- Integrated with various internal systems and services via Keycloak\-based OAuth 2\.0 authentication
-- Connected to internally deployed open\-source LLMs and vector DBs \(for applying the RAG approach\)
-- Include custom logging, metrics, Grafana dashboards and alerts
-- Containerized in Docker and deployed via GitLab CI pipelines to VMs and K8s with Vault\-managed secrets
+*Home Credit International — global consumer finance provider with 100M+ customers across 9 countries*
 
-Each project automates processes, saving significant time for employees\. Projects described below in the "Projects" section\.
+- Designed, built, and deployed 5+ internal tools and AI-powered automation apps from scratch to production, serving 10+ teams and eliminating hundreds of hours of manual work monthly
+- Built a no-code AI agent platform integrated with Service Desk — handles 2000+ tasks/day via webhooks, LLM processing, and dynamic prompt catalog; won **"Best IT Project of 2025"** company award
+- Developed RAG-based automated ticket resolution system that auto-resolves ~15% of support tickets and saves **200+ engineering hours/month**
+- Created Jira release validator that automates pre-deployment checks and generates step-by-step release plans — reduced release preparation from **20+ minutes to under 2 minutes per task**
+- Built Service Desk reporting tool with real-time aggregation, CSV exports, and LLM-powered improvement analysis; auto-delivers reports to stakeholders via messenger and email
+- Containerized all applications with Docker, deployed via GitLab CI pipelines to VMs and Kubernetes with Vault-managed secrets
+- Integrated apps with internal services via Keycloak-based OAuth 2.0 authentication
+- Implemented custom logging, metrics, Grafana dashboards, and alerts for all applications
 
-__Site Reliability Engineer, Home Credit International, __Remote	Jun 2019 – Nov 2023
+### Site Reliability Engineer — Home Credit International
+**On-site | June 2019 – November 2023**
 
-- Maintained a high\-load, cross\-platform banking application consisting of 40\+ microservices running in Kubernetes \(production and test environments\)
-- Installed updates and managed microservice configs, Helm values, Vault secrets, and network access rules
-- Used CI/CD tools such as GitLab Pipelines and Jenkins jobs to automate deployments
-- Analyzed logs and metrics using Splunk, Graylog, Kibana, and Grafana
-- Built proactive monitoring \(dashboards and alerts\)
-- Performed SQL queries in Oracle and PostgreSQL DB's for troubleshooting and data analysis
-- Worked within Agile frameworks including Scrum, SAFe, and Kanban
+- Maintained 99.9% uptime for a high-load banking platform (40+ microservices) running in Kubernetes across production and test environments
+- Managed microservice configurations, Helm values, Vault secrets, and network access rules for 40+ services
+- Automated deployment workflows via GitLab Pipelines and Jenkins, reducing deployment time and manual errors
+- Built proactive monitoring dashboards and alerts using Grafana, Splunk, Graylog, and Kibana — enabled early incident detection before user impact
+- Performed root cause analysis via SQL queries in Oracle and PostgreSQL databases, resolving production incidents
+- Worked within Agile frameworks including Scrum, SAFe, and Kanban across cross-functional teams
 
-__Technical Support Engineer, Tinkoff Bank, __On\-site \(Moscow, Russia\)	Jun 2017 – May 2019
+### Technical Support Engineer — Tinkoff Bank
+**Moscow, Russia | June 2017 – May 2019**
 
-Tinkoff Bank is one of the world's largest neobanks with no physical branches and a strong focus on digital services
+*Tinkoff Bank — one of the world's largest neobanks with no physical branches, fully digital-first*
 
-- Provided technical support for high\-load investment services \(web and mobile apps\)
-- Investigated and resolved customer issues via the Service Desk
-- Escalated critical issues and product improvement suggestions to product teams
-- Collaborated with developers to troubleshoot and resolve complex cases
+- Provided technical support for high-load investment services (web and mobile apps) serving a large active user base
+- Investigated, diagnosed, and resolved customer issues via Service Desk — maintained high customer satisfaction and resolution SLA
+- Escalated critical bugs and product improvement suggestions directly to development teams, contributing to product quality
+- Collaborated with developers to troubleshoot and resolve complex technical cases across frontend and backend systems
 
-__Projects__
+---
 
-- __Service Desk AI Agent__
+## Projects
 
-Integrated into Service Desk and designed as a no\-code AI agent builder, enabling non\-technical users to create custom agents for any ticket form, regardless of complexity or field structure:
+### Service Desk AI Agent
+**Stack:** Python, FastAPI, LangChain, LangGraph, PostgreSQL, Docker, GitLab CI
 
-- Listens to task update webhooks and retrieves task data
-- Selects a prompt and extra settings from a dynamic catalog based on task type
-- Augments LLM context with relevant documentation retrieved from Confluence, vector knowledge bases, and Graylog logs
-- Built with LangGraph agents for intelligent parallel context aggregation and structured result delivery
+No-code AI agent builder enabling non-technical users to create custom agents for any ticket form. Listens to task update webhooks, selects prompts from a dynamic catalog, enriches LLM context with documentation from Confluence, vector knowledge bases, and Graylog logs, then delivers structured results back. Built with LangGraph agents for intelligent parallel context aggregation.
 
-Handles __2000\+ tasks per day__, regardless of their type\. __One of the winners of the internal company award "Best IT Projects of 2025"__\.
+Handles **2000+ tasks/day** regardless of type. **Winner of "Best IT Projects of 2025"** internal company award.
 
-- __Automated Ticket Resolution App__
-- Integrated with the Service Desk to fetch, parse, and analyze ticket descriptions, logs, and screenshots
-- For non\-typical cases, finds relevant documentation about the process and used API methods in a vectorized knowledge base, searches for them in Graylog logs, detects the root cause of the user's problem and auto\-publishes a solution in the ticket
-- __Solves ~15% of tickets automatically__, including the auto\-publishing of validated solutions directly into the ticket system
-- __Saves an estimated 200\+ hours__ of support engineer time monthly, enabling the team to focus on complex, high\-priority incidents
-- __Jira Task Validator__
+### Automated Ticket Resolution App
+**Stack:** Python, LangChain, RAG, Vector DB, Graylog, FastAPI
 
-Retrieves a Jira task for installing a release update and checks whether it is ready to be deployed\. 
+Parses and analyzes ticket descriptions, logs, and screenshots. For non-standard cases, searches a vectorized knowledge base for relevant documentation and API methods, queries Graylog logs, detects root cause, and auto-publishes validated solutions into the ticket system.
 
-It performs the following validations:
+**Solves ~15% of tickets automatically** — saves an estimated **200+ hours/month** of support engineer time.
 
-- Verifies that the current production build image exists in the registry \(to allow rollback if needed\)
-- Checks that the new build image specified in the task exists in the registry
-- Confirms that the new build version has been fully tested on the required test environments
+### Jira Task Validator
+**Stack:** Python, FastAPI, Docker Registry API, Jira API
 
-Then, it generates a dynamic step\-by\-step release plan, which includes:
+Retrieves Jira release tasks and validates deployment readiness across 3 checks: current production image exists in registry (rollback safety), new build image exists, and test environment coverage is complete. Generates a dynamic step-by-step release plan including pre-release steps, deployment steps, post-deploy verification resources, and rollback instructions.
 
-- Steps to prepare before the release
-- Steps to deploy the new version
-- A list of useful resources to check right after the new version is deployed \(e\.g\., links to logs, dashboards\)
-- Rollback instructions in case something goes wrong
+**Reduced release preparation time from 20+ minutes to under 2 minutes per task.**
 
-This tool __reduced the release preparation time__ from over 20 minutes to just a few minutes per task\.
+### Service Desk Reporting Tool
+**Stack:** Python, FastAPI, PostgreSQL, LLM, N8N
 
-- __Service Desk Reporting Tool__
+Aggregates ticket data in real time, stores in a database, and generates daily/weekly/monthly reports with CSV exports and pie chart visualizations. Auto-sends reports via corporate messenger and email groups. LLM analyzes exported reports and generates improvement suggestions, highlighting problematic service areas.
 
-Improves visibility into support team performance and provides clear insights into ticket classifications:
+### App Store Ratings & Reviews
+**Stack:** Python, FastAPI, Grafana, App Store APIs
 
-- Aggregates ticket data in real time and stores it in a database
-- Generates daily, weekly, and monthly reports with CSV exports and pie chart visualizations
-- Automatically sends reports to stakeholders via corporate messenger and email groups
+Collects and analyzes ratings and reviews from App Store, Galaxy Store, AppGallery for multiple company apps. Generates Grafana dashboard metrics and triggers automated alerts when app ratings decline.
 
-In addition, the exported reports are analyzed by an LLM, which generates summary and suggestions for improvement and highlights the most problematic areas in the services supported by the team
+---
 
-- __Apps Stores Ratings & Reviews__
-- Collects and analyzes ratings & reviews from multiple stores \(App Store, Galaxy Store, App Gallery, etc\.\) for multiple company apps
-- Generates metrics for Grafana dashboards
-- Sends automated alerts to stakeholders when app ratings begin to decline
+## Certificates
 
-# Certificates
+- **n8n Courses** — Level 1 & Level 2 | [Certificates](https://community.n8n.io/badges/104/completed-n8n-course-level-1?username=shishkin) | December 2025
+- **Back End Development and APIs** — freeCodeCamp | [Certificate](https://www.freecodecamp.org/certification/shishkin/back-end-development-and-apis) | July 2023
+- **JavaScript Algorithms and Data Structures** — freeCodeCamp | [Certificate](https://www.freecodecamp.org/certification/shishkin/javascript-algorithms-and-data-structures) | February 2023
 
-- n8n Courses \(Level 1 [CERTIFICATE](https://community.n8n.io/badges/104/completed-n8n-course-level-1?username=shishkin), Level 2 [CERTIFICATE](https://community.n8n.io/badges/105/completed-n8n-course-level-2?username=shishkin)\)	December 2025
-- Back End Development and APIs \(freeCodeCamp\) | [CERTIFICATE](https://www.freecodecamp.org/certification/shishkin/back-end-development-and-apis)	July 2023
-- JavaScript Algorithms and Data Structures \(freeCodeCamp\) | [CERTIFICATE](https://www.freecodecamp.org/certification/shishkin/javascript-algorithms-and-data-structures)	February 2023
+---
 
-# Education
+## Education
 
-Specialist, Marketing — Russian State Social University (2012)
+**Specialist, Marketing** — Russian State Social University (2012)
+
+*Self-taught developer — transitioned from marketing analytics to software engineering through hands-on learning and certifications.*
+
+---
+
+## Languages
+
+- **Russian** — Native
+- **English** — Professional Working Proficiency
