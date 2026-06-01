@@ -1,4 +1,4 @@
-Subject: Tech Support Engineer (L2/L3) — Artem Shishkin
+## Tech Support Engineer (L2/L3) — Artem Shishkin
 
 Hi Julia,
 
@@ -19,3 +19,24 @@ CV attached. Would love to chat about how my experience aligns with the role.
 Best,
 Artem Shishkin
 ashishkin21@gmail.com | t.me/ashishkin21 | linkedin.com/in/ashishkin21
+
+---
+
+## Flipper Devices
+
+Hi Flipper Devices team,
+
+I've followed Flipper Zero since the Kickstarter days — the mix of hardware craftsmanship, hacker ethos, and community-driven development is the kind of engineering culture I want to be part of.
+
+I'm a Python developer with 8 years of experience spanning internal tooling, AI automation, and infrastructure. I build tools that eliminate repetitive work for engineering and support teams. My background also includes SRE (Kubernetes, on-call, incident response) and hands-on L2 technical support — so I understand the full loop from user-facing problem to automated solution.
+
+I've worked remotely across time zones for years, I'm self-taught and deeply curious by nature, and I'd love to contribute to the team building your next product — in whatever shape that role takes.
+
+CV attached.
+
+Best,
+Artem Shishkin
+
+ashishkin21@gmail.com
+https://linkedin.com/in/ashishkin21
+https://t.me/ashishkin21
