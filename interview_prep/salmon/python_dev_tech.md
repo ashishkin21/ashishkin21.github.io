@@ -816,6 +816,132 @@ async def retry_async(func, *args, max_attempts=5, base=0.5, cap=30.0, **kwargs)
 
 ---
 
+# Блок 8. Тестирование (honest)
+
+> Главный посыл: формального CI-gate для тестов у меня нет, запускал локально перед deploy. Но правильные паттерны (pytest fixtures, AsyncMock, `@patch`, data-driven cases, AAA) я знаю и применяю — ровно в той области, где это дёшево и быстро окупается: pure-функции парсинга и метрик RAGAS. В остальном проект — heavily integration с корпоративными сервисами, и стратегия там smoke/handshake на реальном окружении + structured logging для post-mortem.
+
+## 8.0. Самоаудит — что реально лежит в `tests/`
+
+| Файл | Что это | pytest собирает? |
+|---|---|---|
+| `test_extract_json.py` (82) | **Unit-тест на pure-функцию** `_extract_json`, data-driven table-of-cases. Runner самописный (`def main()`), тривиально в `@pytest.mark.parametrize`. | Зависит от имени — да |
+| `test_evaluate_llm_response.py` (243) | **Правильные pytest unit-тесты** на `evaluate_llm_response`. `@pytest.fixture`, `@pytest.mark.asyncio`, `@patch`, `AsyncMock`, реальные `assert`. Внешние RAGAS-классы замоканы. | Да |
+| `test_faithfulness.py` (140) | Тот же стиль: fixtures + `AsyncMock` для `evaluate_faithfulness`. | Да |
+| `test_handle_no_prompts_found.py` (167) | **Component-чек** функции `app._handle_no_prompts_found` на JSON-fixture из `tests/data/`. Есть `assert`, но обёрнут в `try/except` со `print` — pytest-asyncio skip без маркера. | Скипнется (нет `@pytest.mark.asyncio`) |
+| `test.py` (1555) | **Smoke exploration harness**. ~12 `async def test_xxx` функций (`test_vault_get`, `test_minerva`, `test_botrate`, `test_jhub` …), дёргают реальные корпоративные сервисы. Финал: `if __name__ == "__main__": asyncio.run(main_test())`. | Скипнется + нельзя в CI (нужен Vault/AD/LLM-IS токен) |
+| `test_llm_limits_monitor.py` (17) | Smoke-runner на live job `check_llm_limits`. | Скипнется |
+
+**Вывод:** «реальный» pytest-набор, который собирается детерминированно — это RAGAS-метрики + JSON-парсер. Остальное — exploration scripts, которые я запускал руками во время разработки каждого клиента на реальном окружении. Это честно и интенционально: разработка каждого из 11 клиентов шла через live handshake.
+
+## 8.1. Уровни тестов и термины (с привязкой к моему коду)
+
+**Пирамида тестов (Test Pyramid):** внизу — много дешёвых unit; середина — component/integration; верх — мало дорогих E2E. У меня фактически **diamond** (перевёрнутая пирамида): много exploration-скриптов против реальных сервисов, мало unit-тестов. Это осознанный выбор (из-за heavy внешних зависимостей), но в platform-layer я бы сместил needle в сторону пирамиды.
+
+**Уровни:**
+- **Unit** — одна функция/класс в изоляции, все зависимости замоканы. Мой пример: `test_extract_json.py` (pure-функция без зависимостей).
+- **Component** — несколько модулей вместе, мокаются только границы. Мой пример: `test_handle_no_prompts_found.py` (функция `app.py` + Pydantic-модели + fixture JSON).
+- **Integration** — несколько сервисов/баз вместе. У меня формально нет, потому что integration = live corporate env.
+- **Smoke** — «живой?» — один сценарий end-to-end на реальном окружении. Мой пример: `test.py::test_vault_get`, `test.py::test_minerva`.
+- **E2E (end-to-end)** — пользовательский путь через всё. У меня — absent; Pyrus → webhook → agents → post — это critical E2E-путь, который я тестирую вручную плюс RAGAS online eval в проде.
+- **Contract** — consumer/provider договор о schema. У меня absent → improvement (Pact, см. блок 4.4).
+
+**Mock types (xUnit patterns):**
+- **Dummy** — объект передаётся, но не используется (заполнитель сигнатуры).
+- **Stub** — возвращает предзаготовленный ответ на вызовы (state verification). У меня: `test_evaluate_llm_response.py:48-58` `groundedness_metric = Mock(); groundedness_metric.ascore = AsyncMock(return_value=Mock(value=0.9, ...))` — это stub.
+- **Mock** — stub + records calls, допускает `assert_called_once()`. У меня `test_evaluate_llm_response.py:85-88` — state + behaviour verification одновременно.
+- **Fake** — работающая, но упрощённая реализация (in-memory SQLite вместо Postgres). У меня нет — все упрощения идут через Mock.
+- **Spy** — records calls без изменения поведения. Намёк в `assert_awaited_once()`.
+
+**`Mock` vs `AsyncMock`:** `Mock` — для sync-объектов. Метод-корутина на обычном `Mock()` вернёт Mock, а не корутину — `await` упадёт. `AsyncMock` делает метод async, возвращает awaitable. У меня `groundedness_metric.ascore` — это async-метод RAGAS-метрики, поэтому `AsyncMock` (`test_evaluate_llm_response.py:49`). На класс-уровне — `Mock()` (т.к. класс не async), но его async-атрибуты — `AsyncMock`.
+
+**`@patch("module.path.attr")`** — правило: патчу **там где импортируется**, не там где определено. У меня `@patch("metrics.ragas.evaluate_llm_response.ResponseGroundedness")` (`test_evaluate_llm_response.py:62`) — патчит имя в namespace `evaluate_llm_response`, куда класс импортирован, а не оригинальный `metrics.ragas.groundedness.ResponseGroundedness`. Это распространённая ошибка — патчить исходник, не consumer-name — патч «не сработает».
+
+**AAA (Arrange-Act-Assert):** структура теста — подготовка, действие, проверка. У меня `test_evaluate_llm_response.py:71-88` — Arrange: setup mocks (71-73), Act: вызов `evaluate_llm_response(...)` (75-83), Assert: `assert_called_once()` + `assert_awaited_once()` (85-88).
+
+**`@pytest.fixture`** — функция, возвращающая подготовленное состояние, ре-используемая между тестами. Scope: `function` (default, fresh per test), `module`, `session`. У меня `config` (`test_evaluate_llm_response.py:28-37`) и `mock_metrics` (`:45-58`). `llm_integration` (`:40-42`) — простейший.
+
+**`@pytest.mark.parametrize`** — data-driven tests, одна функция генерирует N кейсов. Идиоматично заменяет мой `TEST_CASES = [...]` цикл в `test_extract_json.py:23-54, 62-78`. Пример переименования:
+
+```python
+@pytest.mark.parametrize("input_text, expected", [
+    ('{"statements": ["a", "b"]}', {"statements": ["a", "b"]}),
+    ('```json\n{"statements": ["a", "b"]}\n```', {"statements": ["a", "b"]}),
+    ('not json', None),
+])
+def test_extract_json(input_text, expected):
+    assert _extract_json(input_text) == expected
+```
+
+**`pytest-asyncio` strict vs auto mode:** `strict` (default, у меня) — каждый async-test должен нести `@pytest.mark.asyncio`. `auto` — все async-функции автоматически становятся async-testами, ничего помечать не надо. Включается через `asyncio_mode = "auto"` в `[tool.pytest.ini_options]`. **Это одно из моих improvement-действий** — сэкономило бы пометку и сняло скипы.
+
+**Golden file / snapshot:** тест сравнивает результат с эталонным файлом/структурой. У меня фактически присутствует в зародыше — `tests/data/single_task_*.json` это golden Pyrus-вебхуки, `test_handle_no_prompts_found.py:19-20` их читает. Закончил бы через `pytest --snapshot-update` (syrupy/pytest-snapshot).
+
+**Flaky test** — тест, который иногда падается без изменения кода: race, network, time-dependent. Классический кейс — `test_evaluate_llm_response_timeout` (`:187`) с `asyncio.sleep(10)` под `timeout=0.01` — на CI под нагрузкой может timing-попасть. Решение: `@pytest.mark.flaky` (pytest-rerunfailures) или mock часы (`freezegun`).
+
+**Coverage** — `% строк/веток, исполненных тестами`. `pytest-cov`: `pytest --cov=utils --cov=clients --cov-report=term-missing --cov-fail-under=60`. Gate в CI: если ниже порога — fail. У меня coverage не измерялся — improvement.
+
+## 8.2. Q&A — 12 вопросов про тестирование
+
+### Q1. «Как вы тестируете приложение?»
+> Слоисто. **Pure-функции и метрики** (`_extract_json`, `evaluate_llm_response`, `evaluate_faithfulness`) — proper pytest unit-тесты с fixtures, AsyncMock, patch-ем внешних RAGAS-классов, реальными `assert`. Это дёшево и быстро. **App-уровневые функции** (`_handle_no_prompts_found`) — component-тесты на JSON-fixture из `tests/data/`. **Внешние клиенты** (Pyrus, Confluence, Vault, LLM-Integration, AD) — для каждого я писал exploration-скрипт против реального корпоративного env во время разработки; формально они в `test.py`, не pytest-style, но идея — live handshake: «клиент реально ходит в сервис и возвращает shape, который я ожидаю». **E2E-путь** (Pyrus → webhook → agents → post в Pyrus) — пока тестирую вручную, плюс RAGAS online eval в проде даёт continuously faithfulness/groundedness скоринг каждого ответа. **Чего не хватает** — formal CI-gate (запускал локально перед deploy), contract-тестов на boundary agent → client, генерации недетерминированных Pyrus event-fixture-ов. Готов поднять CI-gate на pytest в первый месяц.
+
+### Q2. «Какое у вас покрытие тестами?»
+> Честно — coverage не измерял формально. Зная структуру: unit-тестами покрыты ~3 модуля (`_extract_json`, `evaluate_llm_response`, `evaluate_faithfulness`) — это <10% LOC, но **критичная** часть (парсинг LLM-вывода и метрики качества). Остальное — heavily integration с корпоративными сервисами, что мешает забежать в unit-без mock-инфраструктуры. В первый месяц я бы: (1) добавил `pytest-cov`, поставил `--cov-fail-under=60` как first step, (2) построил `conftest.py` с общими fixtures на `httpx.MockTransport` (см. Q6), что позволило бы unit-тестировать **все 11 клиентов** просто предоставив mock-handler, (3) поднял порог до 70-80% за квартал.
+
+### Q3. «Как тестируете async/LLM-код?»
+> `pytest-asyncio` в режиме strict — каждый async-test помечен `@pytest.mark.asyncio` (`test_evaluate_llm_response.py:61`). Внутри: `AsyncMock` для async-методов (`ascore = AsyncMock(return_value=Mock(value=0.9))`), обычные `Mock` для классов/атрибутов. Verification — `assert_awaited_once()` + `assert_called_once()` (`:85-88`), assert kwargs через `call_args.kwargs` (`:91-96`). Для timeout-handling — патчу таймаут на 0.01 и `AsyncMock(side_effect=slow_ascore)` с `asyncio.sleep(10)` (`:187-214`) — проверяю, что функция не пробрасывает exception наружу при timeout. Для LLM-недоступности — `AsyncMock(side_effect=RuntimeError("LLM упал"))` (`:227`), assert что `evaluate_llm_response` не raises, даже если оба metric-класса падают.
+
+### Q4. «Mock vs stub разница?»
+> Stub — отвечает на вызовы предзаготовленными значениями, для state-verification («что вернулось?»). Mock — stub + records calls, для behavior-verification («как вызывался?»). У меня в `test_evaluate_llm_response.py:48-58` технически stub — я делаю конфиг-возвр-значения. Дальше (`:85-88`) тот же объект используется как mock — `assert_called_once()` проверяет поведение. Поэтому в современных терминах разница скорее в **векторе verification**: assert-state → stub-usage; assert-behaviour → mock-usage. Fake — работающая упрощённая реализация (SQLite-in-memory); Spy — records без вмешательства.
+
+### Q5. «TDD или тестирование после?»
+> После, для этой задачи. Мой флоу: пишу функцию/клиента → пишу exploration-скрипт в `test.py` против реального env → проверяю shape → для pure-функций (json-парсер, метрики) пишу pytest-тесты рядом, обычно после. TDD я понимаю и практикую для случаев, где спека строгая: пишу параметризованный тест с ожидаемыми ветками first, потом реализацию. На этой роли (platform layer с MCP specs, у которых есть JSONSchema input) я бы чаще шёл TDD — schema уже описание контракта.
+
+### Q6. «Как тестировать внешний API?»
+> Pattern, который я бы применил к моему `AsyncHTTPClient` (`utils/httpx_async.py:12`) — `httpx.MockTransport`. `httpx.AsyncClient` принимает `transport=` аргумент; `MockTransport` — callable `[request] → response`. Идея: вместо мокания `httpx.AsyncClient` целиком, я передаю real client с mock-транспортом и проверяю **retry/backoff/429-escalation** логику моего `request()` (`httpx_async.py:29-249`) на синтетических responses. Это даёт real-coverage бизнес-логики (попыток, priority-эскалации на 429, fallback к expert - всё из `httpx_async.py`), без хождения в сеть. Альтернативы — `responses`/`respx` (test-only httpx-mocking libs), но `MockTransport` встроен в httpx и достаточен. Для каждого клиента в `conftest.py` — fixture `pyrus_client` с преднастроенным `MockTransport`.
+
+### Q7. «Flaky tests?»
+> Три источника: (1) **timing** — setTimeout, sleep на CI под нагрузкой; у меня риск — `test_evaluate_llm_response_timeout` (`:187`) с `asyncio.sleep(10)` под `timeout=0.01`; mitigation — `freezegun` для часов или `pytest-rerunfailures`. (2) **Race/shared state** — module-level mutable (`config`, `tasks_queue`); у меня `tasks_queue` в `app.py` — если два теста в одном process бегут, состояние протекает; mitigation — fixture per-test, cleanup. (3) **Network** — внешние вызовы в unit-тестах; у меня только в `test.py` exploration scripts, они в CI не побегут, но pytest их skip-нёт с warning о `@pytest.mark.asyncio` — это шум; mitigation — марк `@pytest.mark.live` + `pytest -m "not live"` по умолчанию.
+
+### Q8. «Contract testing?»
+> У меня отсутствует — improvement. Bridge к блоку 4.4: для platform-layer (MCP tools для агентов) consumer-driven contracts критичны — несколько consumer-агентов договариваются с моим integration-layer о том, что `tool_x` возвращает `KHubResult`-shape. Pact-style: consumer-тест блочит релиз provider-а, если schema изменилась. Для MCP это особенно ценно, потому что LLM-агенты получают schema через `tools/list` — сломать её = сломать reasoning.
+
+### Q9. «Test pyramid как выглядит у вас?»
+> Честно — **diamond**: много exploration scripts против реальных сервисов (`test.py`, 1555 строк), мало proper unit (3 файла). Это следствие проекта: heavy enterprise integration, где unit-тестировать клиента без mock-инфраструктуры — значит просто переписывать httpx-логику. **В первом месяце на этой роли** я бы построил `conftest.py` с `httpx.MockTransport`-fixture на каждый клиент, что сняло бы это ограничение и позволило сместить needle в сторону пирамиды: больше unit на уровне клиентов (retry, 429-эскалация, fallback), меньше live handshake.
+
+### Q10. «Запуск тестов в CI?»
+> Честно — не было formal CI-gate для тестов; запускал `uv run pytest tests/` локально перед commit/deploy. CI — GitLab, но trigger — build/deploy образа. **Что бы я сделал:** `.gitlab-ci.yml` stage `test` → `uv sync --extra dev && uv run pytest --cov=utils --cov=clients --cov-report=xml --cov-fail-under=60 --junitxml=report.xml`; artifacts: coverage + junit; merge-request gate blocking. Py cobertura-плагин для MR-отображения diff-coverage.
+
+### Q11. «Как тестируете идемпотентность / race conditions?»
+> Идемпотентность — эндпоинт `/webhook_handler` с `tasks_queue`-дедуп по `task_id` (`app.py`). Тест: отправляю два вебхука на один `task_id` подряд → assert только один дошёл до `process_selected_prompt`, второй скипнулся. Race conditions — это in-process и **не cross-process safe** (модуль-level `tasks_queue`, персистентности нет). Improvement должен быть Redis- backed (`SETNX idempotency:{tool}:{key}`), и тестировать через `pytest-asyncio` с двумя параллельными `asyncio.gather` запросами — assert одного выполнения. Для formal concurrency-тестов — `hypothesis` property-based.
+
+### Q12. «Как тестируете LangGraph-агентов?»
+> В моём проекте — пока только manual E2E: подбираю репрезентативный Pyrus event, сохраняю как golden (`tests/data/single_task_*.json`), запускаю `process_selected_prompt` вручную, сравниваю результат с ожидаемым по бизнес-логике. **Improvement на этой роли** — (1) snapshot/golden tests через `pytest-snapshot`: переиграть agent на фиксированном event, замокать LLM-call через `AsyncMock` с предзаписанным ответом, assert что output state и emitted tool calls совпадают с golden. (2) Property-based проверка reducer'а `Annotated[list, operator.add]` (`prisma_agent.py:66`) — два узла возвращают списки, assert аккумулятор равен конкатенации. (3) Для LLM-stochasticity — fixed seed (если поддерживается) или mocking LLM через общий fixture, чтобы тест был детерминированным.
+
+## 8.3. Что бы улучшил на этой роли — gap pitches
+
+1. **`asyncio_mode = "auto"` в `[tool.pytest.ini_options]`** в `pyproject.toml`. Снимает необходимость `@pytest.mark.asyncio` на каждом async-тесте и убирает skip-ы exploration-скриптов, которые я помечу `@pytest.mark.live` и буду skip'ать по умолчанию.
+
+2. **`conftest.py` с общими fixtures.** Сейчас `config` и `llm_integration` дублируются между двумя RAGAS test-файлами. Общим стал бы `tests/conftest.py`: `config`, `mock_transport`, per-client `pyrus_client`/`confl_client`/`llm_integration_client` с `httpx.MockTransport`.
+
+3. **`httpx.MockTransport` per `AsyncHTTPClient` subclass.** Главная инвестиция — fixture, который конструирует real `AsyncHTTPClient` с mock-транспортом и handler-функтором, возвращающим синтетические `httpx.Response`. Это даст unit-coverage всей retry/429-эскалации/fallback логике `utils/httpx_async.py:29-249`.
+
+4. **`@pytest.mark.parametrize` для `TEST_CASES`** (`test_extract_json.py`). Приведение к идиоматичному pytest-style, переход с самописного runner.
+
+5. **Coverage gate в CI.** `pytest --cov --cov-fail-under=60` как старт, поднятие до 80% за квартал. `diff cobertura` в MR.
+
+6. **Contract tests (Pact-style) на boundary agent → client.** Особенно важно в MCP-роли — schema tools = контракт с LLM-агентами.
+
+7. **Golden-file тесты для Pyrus event-fixtures.** `pytest-snapshot` для deterministic переигрывания agent-ов на репрезентативных вебхуках, с замоканным LLM-call.
+
+8. **`assert` вместо `print("...OK")`** в `test_handle_no_prompts_found.py`. Сейчас там `try/except + print`, что прячет real failures — pytest-markup с `assert`-ом даёт proper red/green.
+
+## 8.4. Bridge к Блоку 5 (honesty)
+
+«Формального CI pipeline для тестов не было. Запускал `uv run pytest tests/` локально перед deploy; exploration scripts в `test.py` — руками на реальном env. По правильным паттернам (fixtures, AsyncMock, patch, parametrize, AAA) я понимаю и умею — ровно на той области, где это дёшево: pure-функции и метрики RAGAS. На MCP-integration role — где boundary = JSON-schema контракт с LLM-агентами — я вижу интеграцию CI-gate на pytest + coverage + contract tests как первый месяц».
+
+---
+
 ## Финальные советы (субъективно)
 
 1. **Главное — честность с уверенностью.** Когда не знаешь — говоришь: «Прямо не знаю, по аналогии с X...» затем best-effort. Это гораздо ценнее, чем блеф. Опытные интервьюеры замечают блеф мгновенно.
