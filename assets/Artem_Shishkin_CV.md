@@ -1,5 +1,5 @@
 # Artem Shishkin
-**Python Developer — Internal Tools & AI Automation**
+**AI Engineer — LLM Applications & Automation**
 
 [LinkedIn](https://linkedin.com/in/ashishkin21) | [Telegram](https://t.me/ashishkin21) | ashishkin21@gmail.com | Israel, Center District
 
@@ -7,14 +7,14 @@
 
 ## Summary
 
-Delivered 5+ AI-powered internal tools and automations serving 2000+ tasks/day across multiple teams — saving 200+ hours/month of manual work. Built a no-code AI agent platform that won "Best IT Project of 2025", with online LLM evaluation (RAGAS, LLM-as-a-judge) running in production. Python developer with 8 years in tech, specialized in LLM-based automation, RAG architectures, LLM evaluation, and internal tooling with FastAPI, LangChain/LangGraph, Docker, and CI/CD.
+Built 5+ LLM applications and automations serving 2000+ tasks/day across multiple teams. Shipped a no-code AI agent platform (winner, Best IT Project of 2025) with online LLM evaluation (RAGAS, LLM-as-a-judge) running in production. Works with high autonomy in loosely-defined environments — owns products across the full SDLC (requirements → production reliability) and acts as a technical reference point for the team. AI Engineer with 9 years in tech, specialized in LLM applications, agentic workflows (LangGraph), RAG architectures, and production LLM evaluation using FastAPI, LangChain/LangGraph, and Docker.
 
 ---
 
 ## Skills
 
 **Languages & Backend:** Python, SQL, asyncio, REST API, FastAPI, Pydantic, httpx  
-**AI & LLM:** LangChain, LangGraph (StateGraph, Send API, parallel agents), RAG, RAGAS, LLM-as-a-Judge, LLM Evaluation, Prompt Engineering, Context Engineering, OpenAI-compatible APIs, Self-hosted LLMs (Qwen), Semantic Search, Vector Knowledge Bases, Embeddings  
+**AI & LLM:** LangChain, LangGraph (StateGraph, Send API, parallel agents), RAG (semantic search, access-controlled retrieval), RAGAS, LLM-as-a-Judge, LLM Evaluation, Prompt Engineering, OpenAI-compatible APIs, Self-hosted LLMs (Qwen3.6-35B-A3B-FP8, Qwen3.5-122B, Qwen3-235B-IT), Qdrant, Jay Knowledge Hub, Embeddings, Structured output validation, Context window management  
 **Internal Tools:** N8N, workflow design, requirements gathering, process automation, LDAP / Active Directory  
 **Data:** PostgreSQL, Redis, Kafka  
 **Infrastructure:** Docker, Kubernetes, Helm, GitLab CI, Linux, HashiCorp Vault  
@@ -26,21 +26,25 @@ Delivered 5+ AI-powered internal tools and automations serving 2000+ tasks/day a
 
 ## Experience
 
-### Automation Engineer — Home Credit International
+### Automation Engineer — Sovcombank Technologies
 **Remote | December 2023 – Present**
 
-*Home Credit International — global consumer finance provider with 100M+ customers across 9 countries*
+*Sovcombank Technologies — The dedicated IT and fintech subsidiary of a top-5 national commercial banking group, developing high-load internal platforms and applications for over 11 million active clients*
 
-- Designed, built, and deployed 5+ internal tools and AI-powered automation apps from scratch to production, serving 10+ teams and eliminating hundreds of hours of manual work monthly
-- Built a no-code AI agent platform integrated with Service Desk — handles 2000+ tasks/day via webhooks, LLM processing, and dynamic prompt catalog; won **"Best IT Project of 2025"** company award
-- Implemented online LLM evaluation pipeline with **RAGAS** — Faithfulness, Groundedness, and Instruction Adherence scored by an **LLM-as-a-judge** in production, plus retrieval-quality metrics logged on every RAG call
+- Designed, built, and deployed 5+ LLM applications and automation tools from scratch to production, serving 10+ teams
+- Owned each product across the full SDLC — operated with high autonomy in a loosely-defined environment: gathered requirements from stakeholders, made architectural and implementation decisions, set own priorities, and was accountable for production outcomes
+- Acted as technical reference point for the team — advised on nearly all technical tasks, reviewed approaches, and co-implemented complex features to unblock teammates
+- Built a no-code AI agent platform integrated with Service Desk — handles 2000+ tasks/day via webhooks, LLM processing, and dynamic prompt catalog
+- Shipped online LLM evaluation in production with **RAGAS** — Faithfulness, Groundedness, and Instruction Adherence scored by an **LLM-as-a-judge** on every run, plus retrieval-quality metrics logged on every RAG call
 - Built **LangGraph agents** with parallel context aggregation (Send API) across Confluence, knowledge bases, and log systems; multi-prompt orchestration loop with live task-state refresh
 - Enforced **access-controlled RAG** — retrieved knowledge chunks filtered by user's Active Directory groups for per-role knowledge access
 - Engineered LLM resilience (429 rate-limit priority escalation, automatic model fallback on exhausted retries), streamed bot metrics to **Kafka**, and secured APIs with **Keycloak JWKS/RS256** token verification
-- Containerized all applications with Docker, deployed via GitLab CI pipelines to VMs and Kubernetes with Vault-managed secrets, structured JSON logging, and Grafana alerts
+- Owned product health beyond business logic — codebase quality, infrastructure, and reliability: containerized with Docker, deployed via GitLab CI to VMs/Kubernetes with Vault-managed secrets, structured JSON logging, and Grafana alerts
 
 ### Site Reliability Engineer — Home Credit International
 **On-site | Moscow, Russia | June 2019 – November 2023**
+
+*Home Credit International — global consumer finance provider with 100M+ customers across 9 countries*
 
 - Maintained 99.9% uptime for a high-load banking platform (40+ microservices) in Kubernetes; managed Helm values, Vault secrets, and network access rules for 40+ services
 - Automated deployment workflows via GitLab Pipelines and Jenkins, reducing deployment time and manual errors
@@ -60,18 +64,11 @@ Delivered 5+ AI-powered internal tools and automations serving 2000+ tasks/day a
 ## Projects
 
 ### Service Desk AI Agent
-**Stack:** Python, FastAPI, LangGraph, RAGAS, Kafka, Keycloak (JWKS), LDAP/AD, PostgreSQL, Docker, GitLab CI, Helm/Kubernetes, N8N
+**Stack:** Python, FastAPI, LangGraph, Qwen (3.6-35B, 3.5-122B), Qdrant, Jay Knowledge Hub, RAGAS, Kafka, Keycloak (JWKS), LDAP/AD, PostgreSQL, Docker, GitLab CI, Helm/Kubernetes, N8N
 
-No-code AI agent builder enabling non-technical users to create custom agents for any ticket form. Listens to task-update webhooks, selects prompts from a dynamic registry, enriches LLM context with documentation from Confluence, vector knowledge bases, and logs, then delivers structured results back via ticket comments, task fields, email (with DOCX attachments), and corporate messenger.
+No-code AI agent builder enabling non-technical users to create custom agents for any ticket form. Listens to task-update webhooks, selects prompts from a dynamic registry, enriches LLM context from Confluence, a corporate RAG service (Jay Knowledge Hub), Qdrant, and logs, then delivers structured results back via ticket comments, task fields, email (with DOCX attachments), and corporate messenger.
 
-Powered by **LangGraph agents** with parallel context aggregation (Send API) and **RAGAS** online evaluation (LLM-as-a-judge: Faithfulness, Groundedness, Instruction Adherence). Retrieved chunks are **filtered by user's Active Directory groups** for per-role access. A multi-prompt orchestration loop advances tasks across workflow steps with live state refresh. Handles **2000+ tasks/day**. **Winner of "Best IT Project of 2025"** internal company award.
-
-### Automated Ticket Resolution App
-**Stack:** Python, LangChain, RAG, Vector DB, Graylog, FastAPI, N8N
-
-Parses and analyzes ticket descriptions, logs, and screenshots. For non-standard cases, searches a vectorized knowledge base for relevant documentation and API methods, queries Graylog logs, detects root cause, and auto-publishes validated solutions into the ticket system.
-
-**Solves ~15% of tickets automatically** — saves an estimated **200+ hours/month** of support engineer time.
+Architected with **LangGraph agents** using parallel context aggregation (Send API) across multiple sources, with **RAGAS** online evaluation (LLM-as-a-judge: Faithfulness, Groundedness, Instruction Adherence) running on every run. Retrieved chunks are **filtered by user's Active Directory groups** for per-role access. A multi-prompt orchestration loop advances tasks across workflow steps with live state refresh. Handles **2000+ tasks/day**.
 
 ### Jira Task Validator
 **Stack:** Python, FastAPI, Docker Registry API, Jira API
@@ -79,11 +76,6 @@ Parses and analyzes ticket descriptions, logs, and screenshots. For non-standard
 Retrieves Jira release tasks and validates deployment readiness across 3 checks: current production image exists in registry (rollback safety), new build image exists, and test environment coverage is complete. Generates a dynamic step-by-step release plan including pre-release steps, deployment steps, post-deploy verification resources, and rollback instructions.
 
 **Reduced release preparation time from 20+ minutes to under 2 minutes per task.**
-
-### Service Desk Reporting Tool
-**Stack:** Python, PostgreSQL, LLM
-
-Aggregates ticket data in real time, stores in a database, and generates daily/weekly/monthly reports with CSV exports and pie chart visualizations. Auto-sends reports via corporate messenger and email groups. LLM analyzes exported reports and generates improvement suggestions, highlighting problematic service areas.
 
 ---
 
