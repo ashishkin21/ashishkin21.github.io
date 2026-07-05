@@ -1,3 +1,20 @@
+## Technical Support Engineer (L2) — Adapty
+
+Hi Adapty team,
+
+I'm applying for the L2 Technical Support Engineer role. Quick context: 9 years as the bridge between users and engineering — L2 at Tinkoff (investment web + mobile), L3/SRE at Home Credit (40+ microservices, 99.9% SLA), and most recently support-automation at Sovcombank. The loop in your JD — investigate with logs, SQL, and API tools, reproduce, write bug reports developers trust, escalate after root cause — is the loop I've done my whole career.
+
+I work daily with PostgreSQL/Oracle SQL, Splunk/Graylog/Kibana, and Postman/httpx. I'm in Israel (GMT+2/+3), so the evening shift is a fit, and I've done on-call and async handovers for years. One honest gap: I haven't worked with App Store/Play Store billing, StoreKit, or IAP edge cases — what transfers is transaction troubleshooting in fintech and reading server/SDK logs, and I ramp fast.
+
+I like that at Adapty, L2 quality directly moves 20K+ apps' revenue — support with real leverage. CV attached, happy to talk.
+
+Best,
+Artem
+
+ashishkin21@gmail.com | t.me/ashishkin21 | linkedin.com/in/ashishkin21
+
+---
+
 ## QA Engineer - Backend Golang — Plata
 
 Hi Plata hiring team,
